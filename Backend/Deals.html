@@ -134,7 +134,7 @@
         // Sample sales data
         const salesData = [
             { "subject": "Amazon Offer", "body": "Get up to 50% off on electronics! Limited-time sale on top brands. iPhone 16 now available at ₹60,000 with an exclusive 15% discount. Shop now before the deal ends!" },
-            { "subject": "Reliance Digital Best Offers", "body": "Exclusive sale on home appliances! Get a 43-inch Samsung Smart TV for just ₹32,999 with an extra ₹2,000 cashback on select bank cards." }
+            { "subject": "Reliance Digital Best Offers", "body": "Exclusive sale on home appliances! Get a 43-inch Samsung Smart TV for just ₹32,999 with an extra ₹2,000 cashback on select bank cards." },
         ];
 
         // Insights Generator Class
@@ -176,12 +176,12 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer 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`
+                        'Authorization': `Bearer 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`
                     },
                     body: JSON.stringify({
-                        model: "deepseek/deepseek-r1-distill-llama-8b",
+                        model: "deepseek/deepseek-r1:free",
                         messages: [
-                            { role: "user", content: `Analyze these sale offers and provide 5 money-saving insights:\n${JSON.stringify(salesData)}` }
+                            { role: "user", content: `Analyze these sale offers and provide 3 money-saving insights:\n${JSON.stringify(salesData)}` }
                         ]
                     })
                 });
