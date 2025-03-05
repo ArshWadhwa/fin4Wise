@@ -11,11 +11,33 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header>    
         <div class="container">
             <h1>FinWiseHer</h1>
             <nav>
                 <ul>
+                    <div class="user-profile">
+                        <span id="username">Jane Doe</span>
+                        <img src="user.png" alt="User Profile" id="profile-pic">
+                        
+                        <!-- Profile Dropdown (Initially Hidden) -->
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <p><strong>Name:</strong> <span id="profileName">Jane Doe</span></p>
+                            <!-- <p><strong>Email:</strong> <span id="profileEmail">jane.doe@example.com</span></p>
+                            <p><strong>Member Since:</strong> <span id="profileMemberSince">2023</span></p> -->
+                            <a href="#" id="editProfileLink">Edit Profile</a>
+                            <a href="#" id="logoutLink">Logout</a>
+                
+                            <!-- Edit Profile Form (Hidden by Default) -->
+                            <form id="editProfileForm" style="display: none;">
+                                <label for="newUsername">New Username:</label>
+                                <input type="text" id="newUsername" placeholder="Enter new username" required>
+                                <button type="submit">Save</button>
+                                <button type="button" id="cancelEdit">Cancel</button>
+                            </form>
+                        </div>
+                
+                    </div>                    
                     <li><a href="#about">About</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#community">Community</a></li>
@@ -49,16 +71,16 @@
         <div class="container">
             <h2>🚀 Why FinWiseHer?</h2>
             <div class="feature-grid">
-                <div class="feature-item" onclick="window.location.href='Backend/Deals.html';" style="cursor: pointer;">
+                <div class="feature-item" onclick="window.location.href='../backend/deals.html';" style="cursor: pointer;">
                     <h3>✅ Personalized AI Insights</h3>
                     <p>Get tailored financial advice based on your goals and spending habits.</p>
                 </div>
-                <div class="feature-item" onclick="window.location.href='frontend/smartbudget.html';" style="cursor: pointer;">
+                <div class="feature-item" onclick="window.location.href='smartbudget.html';" style="cursor: pointer;">
                     <h3>✅ Smart Budgeting</h3>
                     <p>Track expenses, set budgets, and achieve your financial goals effortlessly.</p>
                 </div>
                 
-                <div class="feature-item" onclick="window.location.href='frontend/finEd.html';" style="cursor: pointer;">
+                <div class="feature-item" onclick="window.location.href='finEd.html';" style="cursor: pointer;">
                     <h3>✅ Financial Education</h3>
                     <p>Access easy-to-understand courses, articles, and quizzes.</p>
                 </div>
@@ -90,5 +112,6 @@
             </div>
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
