@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Education Videos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .header h1 {
+            color: #5D3FD3;
+            font-size: 2rem;
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .video-content {
+            padding: 15px;
+        }
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .video-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .progress-container {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 10px;
+            margin-bottom: 15px;
+        }
+        .progress-bar {
+            background-color: #5D3FD3;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .video-btn {
+            display: block;
+            width: 100%;
+            background-color: #5D3FD3;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .video-btn:hover {
+            background-color: #4A31A8;
+        }
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-btn" onclick="window.location.href='index.html'">←</button>
+            <h1 id="category-title">Category Videos</h1>
+        </div>
+
+        <div id="video-container" class="video-container">
+            <!-- Videos will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Comprehensive video data with more details
+        const videoCategories = {
+            'budgeting': [
+                { 
+                    id: 'budget1',
+                    title: 'Creating Your First Budget', 
+                    duration: '8:00', 
+                    description: 'Learn how to create a comprehensive personal budget',
+                    videoUrl: 'video-player.html?id=budget1',
+                    progress: 0
+                },
+                { 
+                    id: 'budget2',
+                    title: 'Tracking Expenses Effectively', 
+                    duration: '6:00', 
+                    description: 'Master techniques for tracking and managing your expenses',
+                    videoUrl: 'video-player.html?id=budget2',
+                    progress: 0
+                }
+            ],
+            'investments': [
+                { 
+                    id: 'invest1',
+                    title: 'Introduction to Investing', 
+                    duration: '9:00', 
+                    description: 'Understand basic investment principles and strategies',
+                    videoUrl: 'video-player.html?id=invest1',
+                    progress: 0
+                },
+                { 
+                    id: 'invest2',
+                    title: 'Diversifying Your Portfolio', 
+                    duration: '7:00', 
+                    description: 'Learn how to spread risk across different investment types',
+                    videoUrl: 'video-player.html?id=invest2',
+                    progress: 0
+                }
+            ],
+            'debt-management': [
+                { 
+                    id: 'debt1',
+                    title: 'Understanding Credit Scores', 
+                    duration: '5:00', 
+                    description: 'How credit scores work and how to improve them',
+                    videoUrl: 'video-player.html?id=debt1',
+                    progress: 0
+                },
+                { 
+                    id: 'debt2',
+                    title: 'Debt Reduction Strategies', 
+                    duration: '7:00', 
+                    description: 'Practical methods to reduce and manage personal debt',
+                    videoUrl: 'video-player.html?id=debt2',
+                    progress: 0
+                }
+            ]
+        };
+
+        function loadVideos() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category') || 'budgeting';
+            const categoryTitle = document.getElementById('category-title');
+            const videoContainer = document.getElementById('video-container');
+
+            // Update category title
+            const titles = {
+                'budgeting': 'Budgeting Basics',
+                'investments': 'Investment Strategies',
+                'debt-management': 'Debt Management'
+            };
+            categoryTitle.textContent = titles[category];
+
+            // Clear previous videos
+            videoContainer.innerHTML = '';
+
+            // Populate videos
+            videoCategories[category].forEach((video) => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.innerHTML = `
+                    <img src="/api/placeholder/400/250" alt="${video.title}" class="video-thumbnail">
+                    <div class="video-content">
+                        <h3 class="video-title">${video.title}</h3>
+                        <p class="video-description">${video.description}</p>
+                        <div class="video-meta">
+                            <span>${video.duration}</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${video.progress}%"></div>
+                        </div>
+                        <a href="${video.videoUrl}" class="video-btn">
+                            ${video.progress > 0 ? 'Continue Watching' : 'Start Video'}
+                        </a>
+                    </div>
+                `;
+                videoContainer.appendChild(videoCard);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', loadVideos);
+    </script>
+</body>
+</html>

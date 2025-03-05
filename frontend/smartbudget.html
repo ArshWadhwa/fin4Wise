@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="budgetstyle.css">
+    <title>Smart Budgeting - FinWiseHer</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Smart Budgeting</h2>
+        <p class="subtitle">Track where your money is going!</p>
+
+        <div class="input-group">
+            <label for="income">Enter Your Monthly Income:</label>
+            <input type="number" id="income" placeholder="Enter income">
+        </div>
+
+        <h3>Expenses</h3>
+        <div class="input-group">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="Food">Food</option>
+                <option value="Rent">Rent</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="expenseAmount">Amount:</label>
+            <input type="number" id="expenseAmount" placeholder="Enter amount">
+        </div>
+
+        <button class="btn" onclick="addExpense()">Add Expense</button>
+
+        <h3>Expense Breakdown</h3>
+        <ul id="expenseList"></ul>
+
+        <div class="result" id="result"></div>
+    </div>
+    <script src="budget.js"></script>
+</body>
+</html>

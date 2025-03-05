@@ -1,0 +1,27 @@
+[
+    {
+      "id": "1",
+      "product": "iPhone 15",
+      "store": "Amazon",
+      "discount": "20%",
+      "savings": "₹5000",
+      "message": "This product is 20% cheaper on Amazon! You can save ₹5000 by purchasing now."
+    },
+    {
+      "id": "2",
+      "product": "Adidas Sneakers",
+      "store": "Flipkart",
+      "discount": "15%",
+      "savings": "₹1200",
+      "message": "Great deal! Adidas Sneakers are 15% cheaper on Flipkart. Save ₹1200 today."
+    },
+    {
+      "id": "3",
+      "product": "Sony Headphones",
+      "store": "Croma",
+      "discount": "10%",
+      "savings": "₹1000",
+      "message": "Exclusive Offer: Sony Headphones available for 10% off at Croma. Save ₹1000!"
+    }
+  ]
+  
